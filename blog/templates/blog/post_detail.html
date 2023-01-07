@@ -46,13 +46,18 @@
                         </header>
                         <!-- Preview image figure-->
                         {% if post.head_image %}
-                            <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image" /></figure>
-                        {% else %}
-                            <img class="img-fluid rounded" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image">
-                        <% endif %}
+                            <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image" />
+                         {% else %}
+                            <img class="img-fluid rounded" src = "https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image">
+                        {% endif %}
                         <!-- Post content-->
                         <section class="mb-5">
                             <p>{{ post.content }}</p>
+
+                            {% if post.file_upload %}
+                                <a href="{{ post.file_upload.url }}" class="btn btn-warning" role="button" download>Download</a>
+                            {% endif %}
+
                         </section>
                     </article>
                     <!-- Comments section-->
